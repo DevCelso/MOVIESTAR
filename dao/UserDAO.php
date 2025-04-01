@@ -29,39 +29,39 @@ class UserDao implements UserDAOInterface{
 
     }
 
-    public function create(User $user, $authUser = false);{
+    public function create(User $user, $authUser = false){
 
     }
 
-    public function update(User $user);{
+    public function update(User $user){
 
     }
 
-    public function verifyToken($protected = false);{
+    public function verifyToken($protected = false){
 
     }
 
-    public function setTokenToSession($token, $redirect = true);{
+    public function setTokenToSession($token, $redirect = true){
 
     }
 
-    public function authenticateUser($email, $password);{
+    public function authenticateUser($email, $password){
 
     }
 
-    public function findByEmail($email);{
+    public function findByEmail($email){
 
     }
 
-    public function findById($id);{
+    public function findById($id){
 
     }
 
-    public function findByToken($token);{
+    public function findByToken($token){
 
     }
 
-    public function changePassword(User $user);{
+    public function changePassword(User $user){
 
     }
 
