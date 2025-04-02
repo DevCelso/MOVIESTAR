@@ -2,8 +2,16 @@
 
     require_once("globals.php");
     require_once("db.php");
+    require_once("models/Message.php");
 
-    $flassmessage = [];
+    $message = new Message($BASE_URL);
+
+    $flassmessage = $message->getMessage();
+
+    if(!empty($flassmessage["msg"])){
+        //limpar a msg
+        $message->ClearMessage();
+    }
 
 ?>
 

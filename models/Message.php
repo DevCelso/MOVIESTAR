@@ -26,11 +26,22 @@ class Message {
     }
 
     public function getMessage(){
-        // Implementação futura
+        
+        if(!empty($_SESSION["msg"])){
+            return [
+                "msg" => $_SESSION["msg"],
+                "type" => $_SESSION["type"]
+            ];
+        } else {
+            return false;
+        }
     }
 
     public function clearMessage(){
-        // Implementação futura
+        
+        $_SESSION["msg"] = "";
+        $_SESSION["type"] = "";
+
     }
 
 }

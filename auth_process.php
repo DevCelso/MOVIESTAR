@@ -8,6 +8,11 @@ require_once("models/Message.php");
 
 $message = new Message($BASE_URL);
 
+$userDao = new UserDAO($conn, $BASE_URL);
+
+
+
+
 //resgata o tipo de form
 $type = filter_input(INPUT_POST, "type");
 
@@ -24,7 +29,27 @@ if($type === "register"){
     //Verificação de dados mínimos
     if($name && $lastname && $email && $password){
 
+        //Verificar se as senhas batem
+        if($password === $confirmpassword){
+            
 
+            //verificar se o e-mail já está cadastrado
+            if($userDao->findByEmail($email) === false){
+
+               echo"sem user encontrado";
+
+            } else {
+
+            //Enviar msg de erro de usuario existente
+            $message->setMessage("Usuário já cadastrado, tente outro e-mail!", "error", "back");
+
+            }
+
+        } else {
+
+            //Enviar msg de erro de senhas diferentes
+            $message->setMessage("As senhas não são iguais!", "error", "back");
+        }
 
     } else{
 
